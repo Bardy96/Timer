@@ -67,7 +67,21 @@ const clearStuff = () => {
     minutes = 0;
 }
 
+const showArchive = () => {
+
+    timeList.textContent = '';
+    let num = 1;
+    timeArray.forEach(time => {
+        const newTime = document.createElement('li')
+        newTime.innerHTML = `Time no ${num}: <span>${time}</span>`
+
+        timeList.appendChild(newTime)
+        num++;
+    })
+}
+
 startBtn.addEventListener('click', handleStart)
 pauseBtn.addEventListener('click', handlePause)
 stopBtn.addEventListener('click', handleStop)
 removeBtn.addEventListener('click', handleReset)
+archiveBtn.addEventListener('click', showArchive)
