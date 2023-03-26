@@ -37,31 +37,37 @@ const handleStart = () => {
     }, 1000)
 }
 
-const handlePause = () => {
-    clearInterval(countTime);
-}
-
 const handleStop = () => {
 
     time.innerHTML = `Last time: ${stopwatch.textContent}`
 
-    if(stopwatch.textContent !== '0:00') {
+    if (stopwatch.textContent !== '0:00') {
         time.style.visibility = 'visible';
         timeArray.push(stopwatch.textContent)
-        console.log(timeArray)
     }
 
+    clearStuff()
+}
+
+const handlePause = () => {
+    clearInterval(countTime);
+}
+
+const handleReset = () => {
+    time.style.visibility = 'hidden';
+    timeArray = []
+    clearStuff()
+}
+
+const clearStuff = () => {
     clearInterval(countTime)
     stopwatch.textContent = '0:00'
     timeList.textContent = ''
     seconds = 0;
     minutes = 0;
-
 }
-
-
-
 
 startBtn.addEventListener('click', handleStart)
 pauseBtn.addEventListener('click', handlePause)
 stopBtn.addEventListener('click', handleStop)
+removeBtn.addEventListener('click', handleReset)
