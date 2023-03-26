@@ -15,24 +15,30 @@ let countTime;
 let minutes = 0;
 let seconds = 0;
 
-const handleStart = () => { 
+const handleStart = () => {
+    clearInterval(countTime);
 
     countTime = setInterval(() => {
-        
-        if(seconds < 9) {
+
+        if (seconds < 9) {
             seconds++
             stopwatch.textContent = `${minutes}:0${seconds}`
         } else if (seconds >= 9 && seconds < 59) {
             seconds++
             stopwatch.textContent = `${minutes}:${seconds}`
         } else {
-            minutes ++;
+            minutes++;
             seconds = 0;
             stopwatch.textContent = `${minutes}:00`
         }
 
     }, 1000)
+}
+
+const handlePause = () => { 
+    clearInterval(countTime);
  }
 
 
- startBtn.addEventListener('click', handleStart)
+startBtn.addEventListener('click', handleStart)
+pauseBtn.addEventListener('click', handlePause)
