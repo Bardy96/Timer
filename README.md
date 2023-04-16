@@ -1,6 +1,6 @@
 # Timer App
 
-sSimple stopwatch App
+Simple stopwatch App
 
 ### Live
 
